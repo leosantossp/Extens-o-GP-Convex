@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "version": "0.0.3",
+    "name": "GP Convex",
+    "description": "Extensão GP Convex",
+    "author": "Leonardo Santos",
+    "action": {
+      "default_popup": "index.html"
+    },
+    "permissions": [
+      "storage",
+      "tabs",
+      "activeTab",
+      "scripting",
+      "nativeMessaging"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": [
+          "https://www.mercadolivre.com.br/vendas/*"
+        ],
+        "js": [
+          "index.js"
+        ]
+      }
+    ]
+}
