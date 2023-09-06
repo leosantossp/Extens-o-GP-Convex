@@ -99,7 +99,7 @@ document.getElementById('getInfos').addEventListener('click', async function () 
                             lead.products = [];
                             let name = document.querySelector('.sc-title-subtitle-action__label').innerText;
                             let infos = document.querySelector('.andes-card>.sc-title-subtitle-action .sc-title-subtitle-action__sublabel').innerText;
-                            let tel = infos.split('Tel.: ').at(-1);
+                            let tel = infos.search('Tel.: ') ? infos.split('Tel.: ').at(-1) : '';
                             let cpf = document.querySelector('.sc-title-subtitle-action__account-').innerText.split(' | ').at(-1).replace('CPF ', '');
                             let endereco = infos.replace('Envio normal\n', '').split('\nQuem recebe:')[0].replace('\n', ' - ');
                             let subTotal = (document.querySelector('.sc-account-rows__row__subTotal').innerText.replace(/\D/g,'') / 100).toFixed(2);
