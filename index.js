@@ -98,7 +98,11 @@ document.getElementById('getInfos').addEventListener('click', async function () 
                             const lead = {};
                             lead.products = [];
                             let name = document.querySelector('.sc-title-subtitle-action__label').innerText;
-                            let infos = document.querySelector('.andes-card>.sc-title-subtitle-action .sc-title-subtitle-action__sublabel').innerText;
+                            let infos = document.querySelector('.andes-card>.sc-title-subtitle-action .sc-title-subtitle-action__sublabel');
+                            if(!infos) {
+                                infos = document.querySelector('.andes-card__content>.sc-title-subtitle-action .sc-title-subtitle-action__sublabel');
+                            }
+                            infos = infos.innerText;
                             let tel = infos.search('Tel.: ') ? infos.split('Tel.: ').at(-1) : '';
                             let cpf = document.querySelector('.sc-title-subtitle-action__account-').innerText.split(' | ').at(-1).replace('CPF ', '');
                             let endereco = infos.replace('Envio normal\n', '').split('\nQuem recebe:')[0].replace('\n', ' - ');
